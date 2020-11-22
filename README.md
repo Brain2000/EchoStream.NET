@@ -1,0 +1,2 @@
+# EchoStream.NET
+An in memory bi-directional stream that allows both writing and reading the same instance.  This is useful for situations where you need to pass a stream into a function that writes to it, but you then may want to in turn pass that stream into another function that reads from a stream. Normally steams cannot do this and are unidirectional.  This is a very specialized tool that is only required in certain circumstances, such as the PowerBak utility, which needs to split a stream to simultaneously write to both the file system and SQL.
