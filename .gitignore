@@ -1,4 +1,6 @@
+.vs/
 obj/
 bin/**/*
+*.user
 !bin/Release
 !bin/Release/EchoStream.NET.dll
