@@ -126,7 +126,7 @@ public class EchoStream : Stream
 			if (m_count == 0 && _Buffers.Count == 0)
 			{
 				if (m_Closed)
-					return -1;
+					return 0;
 
 				if (_Buffers.TryTake(out m_buffer, ReadTimeout))
 				{
@@ -134,7 +134,7 @@ public class EchoStream : Stream
 					m_count = m_buffer.Length;
 				}
 				else
-					return m_Closed ? -1 : 0;
+					return 0;
 			}
 
 			int returnBytes = 0;

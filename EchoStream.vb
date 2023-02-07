@@ -105,13 +105,15 @@ Public Class EchoStream
         If count = 0 Then Return 0
         SyncLock _lock
             If m_count = 0 AndAlso _Buffers.Count = 0 Then
-                If m_Closed Then Return -1
+                If m_Closed Then
+                    Return 0
+                End If
 
                 If _Buffers.TryTake(m_buffer, ReadTimeout) Then
                     m_offset = 0
                     m_count = m_buffer.Length
                 Else
-                    Return If(m_Closed, -1, 0)
+                    Return 0
                 End If
             End If
 
